@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        body{
+            perspective: 1000px;
+        }
+        .mofang{
+            width: 400px;
+            height: 400px;
+            margin:  200px auto;
+            position: relative;
+            /*设置子元素保留3d效果*/
+            transform-style: preserve-3d;
+            /*
+             animation:关键帧的名称 动画的时间 动画的次数
+             * */
+            animation: donghua 5s infinite;
+        }
+
+        @keyframes donghua{
+            from{
+                /*
+                 rotate3d();可以自定义旋转轴
+                 总共4个参数，前面3个为x,y,z的值决定了一条经过原点的射线形成的旋转轴。
+                 最后1个参数为围绕这个轴旋转的角度。
+                 * */
+                transform: rotate3d(2,2,2,0deg);
+            }
+            to{
+                transform: rotate3d(1,1,1,360deg);
+            }
+        }
+
+        .page{
+              width: 200px;
+              height: 200px;
+              position: absolute;
+              left: 0;
+              top: 0;
+              /*设置元素的透明度*/
+              opacity: 1;
+              background-size: 100% 100%;
+             transition: all 2s;
+             margin:100px auto; //外面的div高度的一半
+              /*
+               设置，如果内容发生改变，那么让浏览器自动给予过渡动画
+               * */
+            /*transition: all 2s;*/
+          }
+
+        .mofang:hover .page{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            /*设置元素的透明度*/
+            opacity: 0.7;
+            background-size: 100% 100%;
+            transition: all 2s;
+            margin:100px auto; //外面的div高度的一半
+            /*
+             设置，如果内容发生改变，那么让浏览器自动给予过渡动画
+             * */
+        transition: all 2s;
+        }
+
+        .page1{
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            /*设置元素的透明度*/
+            opacity: 0.7;
+            background-size: 100% 100%;
+            /*
+             设置，如果内容发生改变，那么让浏览器自动给予过渡动画
+             * */
+            transition: all 2s;
+        }
+
+        .mofang:hover .page1{
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            /*设置元素的透明度*/
+            opacity: 1;
+            background-size: 100% 100%;
+            /*
+             设置，如果内容发生改变，那么让浏览器自动给予过渡动画
+             * */
+            transition: all 2s;
+        }
+
+        .mofang:hover .front{
+            transform: translateZ(200px) translateX(100px) scale(2);
+        }
+        .front{
+            background-image: url(img/1.jpg);
+            transform: translateZ(100px) translateX(100px);
+
+        }
+        .mofang:hover .back{
+            transform: translateZ(-200px) translateX(100px) scale(2);
+        }
+        .back{
+            background-image: url(img/2.jpg);
+            transform: translateZ(-100px) translateX(100px);
+        }
+
+        .mofang:hover .left{
+            transform: rotateY(-90deg) translateZ(100px) scale(2);
+
+        }
+        .left{
+            background-image: url(img/3.jpg);
+            transform: rotateY(-90deg) translateZ(0px);
+        }
+        .mofang:hover .right{
+            transform: rotateY(90deg) translateZ(300px) scale(2);
+        }
+        .right{
+            background-image: url(img/4.jpg);
+            transform: rotateY(90deg) translateZ(200px);
+        }
+        .mofang:hover .top{
+            transform: rotateX(90deg) translateZ(200px) translateX(100px) scale(2);
+        }
+        .top{
+            background-image: url(img/5.jpg);
+            transform: rotateX(90deg) translateZ(100px) translateX(100px);
+        }
+        .mofang:hover .bottom{
+            transform: rotateX(-90deg) translateZ(200px) translateX(100px) scale(2);
+        }
+        .bottom{
+            background-image: url(img/6.jpg);
+            transform: rotateX(-90deg) translateZ(100px) translateX(100px);
+        }
+
+
+
+        .mofang:hover .front1{
+            transform: translateZ(100px) scale(0.5);
+        }
+        .front1{
+            background-image: url(img/01.jpg);
+            transform: translateZ(200px);
+
+        }
+        .mofang:hover .back1{
+            transform: translateZ(-100px) scale(0.5);
+        }
+        .back1{
+            background-image: url(img/02.jpg);
+            transform: translateZ(-200px);
+        }
+
+        .mofang:hover .left1{
+            transform: rotateY(-90deg) translateZ(100px) scale(0.5);
+
+        }
+        .left1{
+            background-image: url(img/03.jpg);
+            transform: rotateY(-90deg) translateZ(200px);
+        }
+        .mofang:hover .right1{
+            transform: rotateY(90deg) translateZ(100px) scale(0.5);
+        }
+        .right1{
+            background-image: url(img/04.jpg);
+            transform: rotateY(90deg) translateZ(200px);
+        }
+        .mofang:hover .top1{
+            transform: rotateX(90deg) translateZ(100px) scale(0.5);
+        }
+        .top1{
+            background-image: url(img/05.jpg);
+            transform: rotateX(90deg) translateZ(200px);
+        }
+        .mofang:hover .bottom1{
+            transform: rotateX(-90deg) translateZ(100px) scale(0.5);
+        }
+        .bottom1{
+            background-image: url(img/06.jpg);
+            transform: rotateX(-90deg) translateZ(200px);
+        }
+
+    </style>
+</head>
+<body>
+<div class="mofang">
+    <div class="page front"></div>
+    <div class="page back"></div>
+    <div class="page left"></div>
+    <div class="page right"></div>
+    <div class="page top"></div>
+    <div class="page bottom"></div>
+
+    <div class="page1 front1"></div>
+    <div class="page1 back1"></div>
+    <div class="page1 left1"></div>
+    <div class="page1 right1"></div>
+    <div class="page1 top1"></div>
+    <div class="page1 bottom1"></div>
+</div>
+</body>
+</html>
